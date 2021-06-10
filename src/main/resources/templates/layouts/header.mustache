@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" content="text/html; charset=UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<title>Game Posts</title>
+</head>
+<body class="bg-dark text-white">
+
+	<nav class="navbar navbar-expand-sm bg-secondary navbar-dark sticky-top">
+		<a class="navbar-brand" href="/">Home</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="collapsibleNavbar">
+			<ul class="navbar-nav">
+
+		{{#userName}}
+				<li class="nav-item">
+					<a class="nav-link" href="/posts/save">Posting</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/psPosts">PsPage</a>
+				</li>
+		</div>
+
+
+		UserName :<span id="user" class="m-2">{{userName}}</span> <a href="/logout" class="btn btn-dark">Logout</a> 
+		{{/userName}}
+
+		{{^userName}}
+		<li class="nav-item ml-auto"><a class="nav-link"
+			href="/auth/login">LogIn</a></li>
+		</ul>
+		{{/userName}}
+	</nav>
+	<br />
