@@ -1,1 +1,32 @@
+server:
+  port: 8090
+  servlet:
+    context-path: /
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+    
+    
+spring:
+    
+  jpa:
+    open-in-view: true
+    hibernate:
+      ddl-auto: update # create, update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # 변수명대로 테이블컬럼명 생성
+      use-new-id-generator-mappings: false
+    show-sql: true # sql 콘솔출력
+    properties:
+      hibernate.format_sql: true # sql 문장정리
 
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+      
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/study?serverTimezone=Asia/Seoul
+    username: kgc
+    password: kgc3164
