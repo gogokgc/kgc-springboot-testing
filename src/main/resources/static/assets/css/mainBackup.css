@@ -99,7 +99,7 @@ input, select, textarea {
 	}
 
 	body {
-		background: #323232;
+		background: #ffffff;
 	}
 
 		body.is-preload *, body.is-preload *:before, body.is-preload *:after {
@@ -116,7 +116,7 @@ input, select, textarea {
 /* Type */
 
 	body, input, select, textarea {
-		color: #dcdcdc;
+		color: #585858;
 		font-family: "Source Sans Pro", Helvetica, sans-serif;
 		font-size: 16pt;
 		font-weight: 300;
@@ -151,7 +151,7 @@ input, select, textarea {
 
 		a:hover {
 			border-bottom-color: transparent;
-			color: #5ABEF5 !important;
+			color: #f2849e !important;
 		}
 
 	strong, b {
@@ -2146,7 +2146,7 @@ input, select, textarea {
 		background-color: transparent;
 		border: none;
 		border-radius: 0;
-		border-bottom: solid 1px #5ABEF5;
+		border-bottom: solid 1px #c9c9c9;
 		color: inherit;
 		display: block;
 		outline: 0;
@@ -2170,7 +2170,7 @@ input, select, textarea {
 		input[type="tel"]:focus,
 		select:focus,
 		textarea:focus {
-			border-bottom-color: #5ABEF5;
+			border-bottom-color: #f2849e;
 			box-shadow: inset 0 -1px 0 0 #f2849e;
 		}
 
@@ -3166,7 +3166,7 @@ input, select, textarea {
 
 	#footer {
 		padding: 5em 0 6em 0 ;
-		background-color: #828282;
+		background-color: #f6f6f6;
 	}
 
 		#footer > .inner {
@@ -3204,7 +3204,7 @@ input, select, textarea {
 				margin-top: 5em;
 				list-style: none;
 				font-size: 0.8em;
-				color: rgba(0, 0, 0, 0.5);
+				color: rgba(88, 88, 88, 0.5);
 			}
 
 				#footer > .inner .copyright a {
