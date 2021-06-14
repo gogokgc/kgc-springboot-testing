@@ -13,9 +13,6 @@ var main = {
 			_this.delete();
 		});
 		
-		$('#btn-check').on('click', function() {
-			_this.check();
-		});
 	},
 
 	save: function() {
@@ -35,7 +32,7 @@ var main = {
 			data: JSON.stringify(data)
 		}).done(function() {
 			alert('Posting Complete');
-			window.location.href = '/';
+			window.location.href = '/index';
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		})
@@ -62,7 +59,7 @@ var main = {
 			data: JSON.stringify(data)
 		}).done(function() {
 			alert('Editing Complete');
-			window.location.href = '/';
+			window.location.href = '/index';
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
@@ -82,7 +79,7 @@ var main = {
 			contentType: 'application/json; charset=utf-8',
 		}).done(function() {
 			alert('Delete Complete');
-			window.location.href = '/';
+			window.location.href = '/index';
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
@@ -91,17 +88,6 @@ var main = {
 		}
 	},
 	
-	check: function() {
-		var name = $('#userName').val();
-		var author = $('#author').val();
-		var id = $('#id').val();
-		if(name == author){
-			window.location.href = '/posts/update/' + id;
-		}else{
-			alert('you can not edit others posting');
-		}
-		
-	},
 	
 };
 main.init();

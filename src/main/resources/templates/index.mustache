@@ -1,27 +1,28 @@
 {{>layout/header}}
-				<!-- Main -->
-					<div id="main">
-						<div class="inner">
-							<header>
-								<h1>This is KGC's Game Posting site</h1><br />
-								<p>You can share you game experience with others any time in here!</p>
-							</header>
-							<section class="tiles">
-							
-								<article class="style7">
-									<span class="image">
-										<img src="images/pic05.jpg" alt="" />
-									</span>
-									<a href="/generic">
-										<h2>Title</h2>
-										<div class="content">
-											<p>content?</p>
-										</div>
-									</a>
-								</article>
-								
-							</section>
-						</div>
+<!-- Main -->
+<div id="main">
+	<div class="inner">
+		<header>
+			<h1>This is KGC's Game Posting site</h1>
+			<br />
+			<p>You can share you game experience with others any time in
+				here!</p>
+		</header>
+		<section class="tiles">
+			{{#posts}}
+			<article class="style7">
+				<span class="image"> <img src="images/pic05.jpg" />
+				</span> <a href="/posts/detail/{{id}}">
+					<h2>{{title}}</h2>
+					<div class="content">
+						<p>{{author}}</p>
 					</div>
+				</a>
+			</article>
+			{{/posts}}
+		</section>
+
+	</div>
+</div>
 
 {{>layout/footer}}
