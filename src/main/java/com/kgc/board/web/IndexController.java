@@ -42,10 +42,10 @@ public class IndexController {
 	
 	@GetMapping("/posts/detail/{id}")
 	public String postsDetail(@PathVariable Long id, Model model) {
+
+		int hit = postsService.updateHit(id);
 		
 		PostsResponseDto dto = postsService.findById(id);
-		
-		int hit = postsService.updateHit(id);
 
 		if(hit == 1) {
 		model.addAttribute("post", dto);
