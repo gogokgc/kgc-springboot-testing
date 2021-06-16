@@ -3,6 +3,8 @@ package com.kgc.board.service.posts;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,6 +52,17 @@ public class PostsService {
 		return postsRepository.updateHit(id);
 	}
 
+	public Page<Posts> findAllPaging(Pageable pageable){
+		return postsRepository.findAll(pageable);
+	}
+	
+	@Transactional
+	public boolean pageCheck(Pageable pageable) {
+		Page<Posts> page = findAllPaging(pageable);
+		Boolean check = page.hasNext();
+		
+		return check;
+	}
 	
 	public List<PostsListResponseDto> findAllDesc(){
 		return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());

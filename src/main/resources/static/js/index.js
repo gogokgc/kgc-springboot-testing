@@ -32,7 +32,7 @@ var main = {
 			data: JSON.stringify(data)
 		}).done(function() {
 			alert('Posting Complete');
-			window.location.href = '/index';
+			window.location.href = '/';
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		})
@@ -59,7 +59,7 @@ var main = {
 			data: JSON.stringify(data)
 		}).done(function() {
 			alert('Editing Complete');
-			window.location.href = '/index';
+			window.location.href = '/';
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});
@@ -79,7 +79,7 @@ var main = {
 			contentType: 'application/json; charset=utf-8',
 		}).done(function() {
 			alert('Delete Complete');
-			window.location.href = '/index';
+			window.location.href = '/';
 		}).fail(function(error) {
 			alert(JSON.stringify(error));
 		});

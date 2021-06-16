@@ -1,5 +1,8 @@
 package com.kgc.board.web;
 
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,11 +19,13 @@ public class IndexController {
 	
 	private final PostsService postsService;
 
-	@GetMapping("/index")
-	public String index(Model model) {
+	@GetMapping("/")
+	public String index(Model model, @PageableDefault(size = 6, sort = "id", direction = Direction.DESC)Pageable pageable) {
 		
-		model.addAttribute("posts", postsService.findAllDesc());
-		
+		model.addAttribute("posts", postsService.findAllPaging(pageable));
+		model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+		model.addAttribute("next", pageable.next().getPageNumber());
+		model.addAttribute("pageCheck", postsService.pageCheck(pageable));
 
 		return "index";
 	}
@@ -58,7 +63,6 @@ public class IndexController {
 		
 	}
 
-	
 	
 	
 	
