@@ -1,0 +1,39 @@
+{{>layout/header}}
+<!-- Main -->
+<div id="main">
+	<div class="inner">
+		<header>
+			<h1>This is KGC's Game Posting site</h1>
+			<br />
+			<p>You can share you game experience with others any time in
+				here!</p>
+		</header>
+		<section class="tiles">
+			{{#searchResults}}
+			<article class="style7">
+				<span class="image"> <img src="images/pic06.jpg" />
+				</span> <a href="/posts/detail/{{id}}">
+					<h2>{{title}}</h2>
+					<div class="content">
+						<p>{{author}}</p>
+					</div>
+				</a>
+			</article>
+			{{/searchResults}}
+		</section>
+		<br>
+<!--		{{#pageCheck}}-->
+<!--		<div class="paging" align="center">-->
+<!--			<a class="button primary small" href="?page={{previous}}">Previous</a>-->
+<!--			<a class="button primary small" href="?page={{next}}">Next</a>-->
+<!--		</div>-->
+<!--		{{/pageCheck}}-->
+<!--		{{^pageCheck}}-->
+<!--		<div class="paging" align="center">-->
+<!--			<a class="button primary small" href="?page={{previous}}">Previous</a>-->
+<!--		</div>-->
+<!--		{{/pageCheck}}-->
+	</div>
+</div>
+
+{{>layout/footer}}

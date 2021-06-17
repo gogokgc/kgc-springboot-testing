@@ -67,6 +67,12 @@ public class PostsService {
 	public List<PostsListResponseDto> findAllDesc(){
 		return postsRepository.findAllDesc().stream().map(PostsListResponseDto::new).collect(Collectors.toList());
 	}
+
+	@Transactional
+	public Page<Posts> searchByTitleContent(Pageable pageable, String title, String content){
+
+		return postsRepository.findByContentContainingOrTitleContaining(pageable, title, content);
+	}
 	
 	@Transactional
 	public void delete(Long id) {

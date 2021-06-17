@@ -9,7 +9,9 @@ server:
     
     
 spring:
-    
+  devtools:
+    restart:
+      enabled: true
   jpa:
     open-in-view: true
     hibernate:

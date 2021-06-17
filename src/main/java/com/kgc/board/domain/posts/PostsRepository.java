@@ -2,6 +2,8 @@ package com.kgc.board.domain.posts;
 
 import java.util.List;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -17,4 +19,6 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
 	@Modifying
 	@Query("update Posts p set p.hit = p.hit + 1 where p.id = :id")
 	int updateHit(@Param("id") Long id);
+
+	Page<Posts> findByContentContainingOrTitleContaining(Pageable pageable, String title, String content);
 }

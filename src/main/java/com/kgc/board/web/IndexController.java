@@ -12,6 +12,7 @@ import com.kgc.board.service.posts.PostsService;
 import com.kgc.board.web.dto.PostsResponseDto;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @RequiredArgsConstructor
 @Controller
@@ -28,6 +29,18 @@ public class IndexController {
 		model.addAttribute("pageCheck", postsService.pageCheck(pageable));
 
 		return "index";
+	}
+
+	@GetMapping("/posts/search")
+	public String search(Model model, @PageableDefault(size = 6, sort = "id", direction = Direction.DESC)Pageable pageable, String keyword) {
+
+		model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+		model.addAttribute("next", pageable.next().getPageNumber());
+		model.addAttribute("pageCheck", postsService.pageCheck(pageable));
+		model.addAttribute("searchResults", postsService.searchByTitleContent(pageable, keyword, keyword));
+		model.addAttribute("keyword", keyword);
+
+		return "searchResult";
 	}
 	
 	@GetMapping("/posts/save")

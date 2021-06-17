@@ -8,36 +8,36 @@
 			<p>You can share you game experience with others any time in
 				here!</p>
 		</header>
-        <form method="get" action="/posts/search" >
+         <form method="get" action="/posts/search" >
             <div class="row" align="right">
             	<div class="col-6 col-12-xsmall">
 					<input hidden=""/>
 				</div>
 				<div class="col-6 col-12-xsmall">
-					<input type="text" name="keyword" id="keyword" placeholder="Search" />
+					<input type="text" name="keyword" id="keyword" placeholder="Search" value="{{keyword}}"/>
 					<br>
 					<button type="submit">Search</button>
 				</div>
 			</div>
         </form>
 		<section class="tiles">
-			{{#posts}}
+			{{#searchResults}}
 			<article class="style7">
-				<span class="image"> <img src="images/pic06.jpg" />
+				<span class="image"> <img src="/images/pic06.jpg" />
 				</span> <a href="/posts/detail/{{id}}">
 					<h2>{{title}}</h2>
-					<div class="content">
+					<div>
 						<p>{{author}}</p>
 					</div>
 				</a>
 			</article>
-			{{/posts}}
+			{{/searchResults}}
 		</section>
 		<br>
 		{{#pageCheck}}
 		<div class="paging" align="center">
-			<a class="button primary small" href="?page={{previous}}">Previous</a>
-			<a class="button primary small" href="?page={{next}}">Next</a>
+			<a class="button primary small" href="?keyword={{keyword}}?page={{previous}}">Previous</a>
+			<a class="button primary small" href="?keyword={{keyword}}?page={{next}}">Next</a>
 		</div>
 		{{/pageCheck}}
 		{{^pageCheck}}
