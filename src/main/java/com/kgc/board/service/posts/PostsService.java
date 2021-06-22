@@ -69,9 +69,9 @@ public class PostsService {
 	}
 
 	@Transactional
-	public Page<Posts> searchByTitleContent(Pageable pageable, String title, String content){
+	public List<PostsListResponseDto> searchByTitleContent(Pageable pageable, String title, String content){
 
-		return postsRepository.findByContentContainingOrTitleContaining(pageable, title, content);
+		return postsRepository.findByContentContainingOrTitleContaining(pageable, title, content).stream().map(PostsListResponseDto::new).collect(Collectors.toList());
 	}
 	
 	@Transactional

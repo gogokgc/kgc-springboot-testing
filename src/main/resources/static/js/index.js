@@ -13,6 +13,9 @@ var main = {
 			_this.delete();
 		});
 
+		$('#btn-search').on('click', function() {
+			_this.search();
+		});
 	},
 
 	save: function() {
@@ -87,5 +90,24 @@ var main = {
 		return false;
 		}
 	},
+	
+	search: function(){
+		var data={ 
+			keyword: $('#keyword').val()
+		};
+		console.log(data);
+		$.ajax({
+			type: 'GET',
+			url: '/posts/search',
+			data: data,
+			contentType: 'application/json; charset=utf-8',
+			dataType: JSON.stringify(data)
+		}).done(function(){
+			window.location.href = '/posts/search';
+		}).fail(function(error){
+			alert(data);
+			alert(error);
+		});
+	}
 }
 main.init();

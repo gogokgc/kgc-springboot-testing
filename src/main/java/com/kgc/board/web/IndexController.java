@@ -7,12 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.kgc.board.service.posts.PostsService;
 import com.kgc.board.web.dto.PostsResponseDto;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @RequiredArgsConstructor
 @Controller
@@ -32,7 +34,7 @@ public class IndexController {
 	}
 
 	@GetMapping("/posts/search")
-	public String search(Model model, @PageableDefault(size = 6, sort = "id", direction = Direction.DESC)Pageable pageable, String keyword) {
+	public String search(Model model, @PageableDefault(size = 6, sort = "id", direction = Direction.DESC)Pageable pageable, @RequestParam String keyword) {
 
 		model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
 		model.addAttribute("next", pageable.next().getPageNumber());
