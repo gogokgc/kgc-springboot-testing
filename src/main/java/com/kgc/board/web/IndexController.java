@@ -34,12 +34,12 @@ public class IndexController {
 	}
 
 	@GetMapping("/posts/search")
-	public String search(Model model, @RequestParam String keyword) {
+	public String search(Model model,@PageableDefault(size = 6, sort = "id", direction = Direction.DESC)Pageable pageable, @RequestParam String keyword) {
 
-//		model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
-//		model.addAttribute("next", pageable.next().getPageNumber());
-//		model.addAttribute("pageCheck", postsService.pageCheck(pageable));
-		model.addAttribute("searchResults", postsService.searchByTitleContent(keyword, keyword));
+		model.addAttribute("previous", pageable.previousOrFirst().getPageNumber());
+		model.addAttribute("next", pageable.next().getPageNumber());
+		model.addAttribute("pageCheck", postsService.pageCheck(pageable));
+		model.addAttribute("searchResults", postsService.searchByTitleContent(pageable, keyword, keyword));
 		model.addAttribute("keyword", keyword);
 
 		return "searchResult";
